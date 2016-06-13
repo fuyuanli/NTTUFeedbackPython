@@ -1,0 +1,76 @@
+<head>
+    <title>臺東大學自動填單</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style>
+        p,span,label{
+            font-size:18px;
+        }
+        img {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <h1 align='center'>臺東大學教學意見調查表機器人</h1>
+
+        <form action='/nttu' method='post' role='form'>
+            <div class="col-xs-8 col-xs-offset-2">    
+
+                <h2>簡介</h2>
+                <br>
+                <center><img src="https://i.imgur.com/kk5gt8w.png" width=90%></center>
+                <br>
+                <p>這是一個可以替你自動填完煩人問卷的程式，使用Python 所寫，輸入 
+                <a href='https://infosys.nttu.edu.tw/' target='_blank'>校務系統</a> 的
+                帳號密碼，按下「自動填單」，瞬間完成填寫問卷的工作，目前為測試階段。耗
+                時兩天完成，效果還滿不錯的XD。</p>
+                <br>
+                <div class='form-group'>
+                    <label for='uid'>帳號</label>
+                    <input type='text' name='uid' class='form-control' placeholder='10411100' />
+                </div>
+                <div class='form-group'>
+                    <label for='passwd'>密碼</label>
+                    <input type='password' name='passwd'class='form-control' placeholder='密碼'>
+                </div>
+                <div align='center'>
+                    <img src='/get_code' width='200px'>
+                </div>
+                <div class='form-group'>
+                    <label for='code'>驗證碼</label>
+                    <input type='text' name='code' class='form-control' maxlength="4" placeholder='0000'>
+                </div>
+                <div class='form-group'>
+                    <label for='accept'>同意使用條款？</label>
+                    <p>一、本程式不會紀錄任何帳號密碼，請放心使用。<br>
+                    二、使用Python所寫，對程式碼有興趣歡迎交流。<br>
+                    三、請打好打滿你的帳號密碼。<br>
+                    四、本站無使用資料庫，應該是沒有SQL Injection 的問題。<br>
+                    五、登入後即自動執行填單程式，將<span style='color:red'>覆蓋</span>已填完的內容，請謹慎。<br>
+                    <span style='color:red'>※請勿重複點選，伺服器需要時間處理。</span><br>
+                    </p>
+                    <input type='radio' name='accept' value='1'>
+                    <span>同意</span>
+                    <input type='radio' name='accept' value='0' checked>
+                    <span>不同意</span>
+                    
+                </div>
+                <input type="submit" class="btn btn-lg btn-primary btn-block" value="自動填單">
+                <br>    
+                <center>
+                    <a href='https://becoder.org' target='_blank'>Powered by FuYuan's Space.</a>
+                    <br>
+                    <a href='https://www.openshift.com/' target='_blank'>Hosting on OpenShift.</a>
+                </center>
+                <br><br><br>
+            </div>
+        </form>
+    </div>
+</body>
